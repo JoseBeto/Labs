@@ -5,6 +5,12 @@ import java.io.FileNotFoundException;
 //import java.util.Calendar;
 import java.util.Scanner;
 
+/******************************
+ * 
+ * @author Jose Bocanegra
+ * 
+ ******************************/
+
 public class Lab3 {
 
 	public static void main(String[] args) {
