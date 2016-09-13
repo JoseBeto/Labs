@@ -14,7 +14,32 @@ public class Date implements Comparable<Date> {
 	
 	public int compareTo (Date other) { // return -1 if this Date is before the other Date, 
 		//0 if they are equal, and +1 if this Date is after the other Date
-		return 0;
+		if(this.year < other.year)
+			return -1;
+		else if(this.year > other.year)
+			return 1;
+		else { //this.year == other.year
+			if(this.month < other.month)
+				return -1;
+			else if(this.month > other.month)
+				return 1;
+			else { //this.month == other.month
+				if(this.day < other.day)
+					return -1;
+				else if(this.day > other.day)
+					return 1;
+				else //this.day == other.day, this == other
+					return 0;
+			}
+		}
+	}
+	
+	public Date () {
+		this.date = "";
+		this.month = 0;
+		this.day = 0;
+		this.year = 0;
+		this.invDate = 0;
 	}
 	
 	public Date (String line) {
@@ -41,6 +66,10 @@ public class Date implements Comparable<Date> {
 			return "Invalid Date.";
 		else
 			return "Date: " + date;
+	}
+	
+	public String getDate() {
+		return date;
 	}
 	
 	public int checkDayOfMonth(int i) {

@@ -26,16 +26,17 @@ public class Lab3 {
 		    System.err.println("failed to open dates.txt");
 		    System.exit(1);
 		}
+		Date oldDate = new Date();
 		while (in.hasNextLine()) {
 		    String line = in.nextLine();
-			
 			Date date = new Date(line);
 		    System.out.println(date);
+		    
 		    // need more code for DateRange objects
-		}    
-		
-		//System.out.println(date);
-		//System.out.println(daterange);
+		    DateRange daterange = new DateRange(date, oldDate);
+		    System.out.println(daterange);
+		    oldDate = date;
+		}
 	}
 
 }
