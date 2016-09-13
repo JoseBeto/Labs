@@ -12,6 +12,10 @@ import java.util.Scanner;
  ******************************/
 
 public class Lab3 {
+	
+	/*
+	 * Main method comment
+	 */
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
