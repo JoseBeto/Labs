@@ -11,13 +11,15 @@ public class DateRange {
 		this.newDate = dNew;
 		this.oldDate = dOld;
 	}
+	
+	public int getI () {
+		return i;
+	}
 
 	@Override
 	public String toString() {
-		String s = "DateRange: " + oldDate.getDate() + " - " + newDate.getDate();
-		if(i == 1)
-			return s;
-		else
-			return "";
+		String oD = oldDate.getDate();
+		String nD = newDate.getDate();
+		return "DateRange: Date: " + oD + " - Date: " + nD;
 	}
 }

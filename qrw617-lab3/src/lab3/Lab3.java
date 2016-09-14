@@ -2,7 +2,6 @@ package lab3;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-//import java.util.Calendar;
 import java.util.Scanner;
 
 /******************************
@@ -30,11 +29,12 @@ public class Lab3 {
 		while (in.hasNextLine()) {
 		    String line = in.nextLine();
 			Date date = new Date(line);
-		    System.out.println(date);
-		    
+			System.out.println(date);
 		    // need more code for DateRange objects
 		    DateRange daterange = new DateRange(date, oldDate);
-		    System.out.println(daterange);
+		    if((daterange.getI() == 1) && (oldDate.getDate() != null) && (date.getDate() 
+		    		!= null) && (oldDate.getDate() != "") && (date.getDate() != ""))
+		    	System.out.println(daterange);
 		    oldDate = date;
 		}
 	}

@@ -63,7 +63,7 @@ public class Date implements Comparable<Date> {
 	@Override
 	public String toString() {
 		if (invDate == 0)
-			return "Invalid Date.";
+			return "Invalid Date";
 		else
 			return "Date: " + date;
 	}
