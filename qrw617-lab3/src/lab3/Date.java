@@ -69,11 +69,11 @@ public class Date implements Comparable<Date> {
 			if(this.day == 0)
 				this.invDate = 0;
 			else {
-				if (month == 2 && day == 29 && !(year % 400 == 0 && year % 4 == 0 && year % 100 == 0))
+				this.year = Integer.valueOf(s[2]);
+				if (month == 2 && day == 29 && !(year % 4 == 0 && year % 100 != 0 || year % 400 == 0))
 					this.invDate = 0;
 				else {
 					this.invDate = 1;
-					this.year = Integer.valueOf(s[2]);
 					this.date = MONTHS[month] + " " + day + ", " + year;
 				}
 			}
