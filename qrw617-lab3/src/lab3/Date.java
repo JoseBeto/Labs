@@ -23,7 +23,7 @@ public class Date implements Comparable<Date> {
 	private int day;
 	private int year;
 	private int invDate; // 1 = Correct date. 0 = Incorrect date.
-	private static final int[] DAYS_PER_MONTH = { 0, 31, 28, 31, 30, 31, 30, 31,
+	private static final int[] DAYS_PER_MONTH = { 0, 31, 29, 31, 30, 31, 30, 31,
             31, 30, 31, 30, 31 };
 	private static final String[] MONTHS = { "", "January", "February",
 			"March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
@@ -69,9 +69,13 @@ public class Date implements Comparable<Date> {
 			if(this.day == 0)
 				this.invDate = 0;
 			else {
-				this.invDate = 1;
-				this.year = Integer.valueOf(s[2]);
-				this.date = MONTHS[month] + " " + day + ", " + year;
+				if (month == 2 && day == 29 && !(year % 400 == 0 && year % 4 == 0 && year % 100 == 0))
+					this.invDate = 0;
+				else {
+					this.invDate = 1;
+					this.year = Integer.valueOf(s[2]);
+					this.date = MONTHS[month] + " " + day + ", " + year;
+				}
 			}
 		}
 	}

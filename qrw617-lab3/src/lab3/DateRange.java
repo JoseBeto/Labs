@@ -17,8 +17,8 @@ package lab3;
 public class DateRange {
 
 	private int i;
-	Date newDate;
-	Date oldDate;
+	private Date newDate;
+	private Date oldDate;
 	
 	public DateRange(Date dNew, Date dOld) {
 		this.i = dNew.compareTo(dOld);
