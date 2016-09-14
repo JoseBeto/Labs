@@ -1,5 +1,19 @@
 package lab3;
 
+/***********************************************
+ * 
+ * DateRange class receives two Date variables,
+ * 	one old and one new to compare them using
+ * 	a function within the Date class. It then
+ * 	stores that information within the DateRange
+ * 	class variable i. DateRange also contains
+ * 	a toString function to ensure DateRange
+ * 	output is in the correct format.
+ * 
+ * @author Jose Bocanegra
+ * 
+ ***********************************************/
+
 public class DateRange {
 
 	private int i;
@@ -18,8 +32,6 @@ public class DateRange {
 
 	@Override
 	public String toString() {
-		String oD = oldDate.getDate();
-		String nD = newDate.getDate();
-		return "DateRange: Date: " + oD + " - Date: " + nD;
+		return "DateRange: " + oldDate.toString() + " - " + newDate.toString();
 	}
 }

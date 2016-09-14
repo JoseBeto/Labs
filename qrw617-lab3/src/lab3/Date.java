@@ -1,5 +1,21 @@
 package lab3;
 
+/**********************************************************
+ * 
+ * Date class receives a string from Lab3 class,
+ * 	splits it into 3 different tokens (month, date, 
+ * 	and year), and stores it into their appropriate
+ * 	variable. Checks then occur to make sure no extra
+ * 	commas or periods are left of the token. The next
+ * 	checks are to ensure the month and day exist. Date
+ * 	class also converts the month to an int for simplicity.
+ * 	Another thing Date class has is the toString function
+ * 	to output Date class in the right format. 
+ * 
+ * @author Jose Bocanegra
+ * 
+ **********************************************************/
+
 public class Date implements Comparable<Date> {
 	
 	private String date;

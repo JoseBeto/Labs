@@ -4,16 +4,30 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-/******************************
+/***********************************************
+ * 
+ * Lab3 class reads in data from a file by
+ * 	line and passes the string to Date class.
+ * 	It then prints the date object and then
+ * 	passes date and the previous date (oldDate)
+ *  to DateRange class. Now it determines if 
+ *  daterange and date objects are valid to 
+ *  print, then prints it.
  * 
  * @author Jose Bocanegra
  * 
- ******************************/
+ ***********************************************/
 
 public class Lab3 {
 	
 	/*
-	 * Main method comment
+	 * Main method reads in file data, stores them to string,
+	 * 	passes to Date and DateRange class where they are 
+	 * 	organized appropriately, then Main method tests to see
+	 * 	if the data is correct to output, outputting if it passes
+	 * 	the tests.
+	 * 
+	 * @param args
 	 */
 
 	public static void main(String[] args) {
