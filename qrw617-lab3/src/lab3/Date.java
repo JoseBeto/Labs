@@ -1,5 +1,21 @@
 package lab3;
 
+/**********************************************************
+ * 
+ * Date class receives a string from Lab3 class,
+ * 	splits it into 3 different tokens (month, date, 
+ * 	and year), and stores it into their appropriate
+ * 	variable. Checks then occur to make sure no extra
+ * 	commas or periods are left of the token. The next
+ * 	checks are to ensure the month and day exist. Date
+ * 	class also converts the month to an int for simplicity.
+ * 	Another thing Date class has is the toString function
+ * 	to output Date class in the right format. 
+ * 
+ * @author Jose Bocanegra
+ * 
+ **********************************************************/
+
 public class Date implements Comparable<Date> {
 	
 	private String date;
@@ -7,7 +23,7 @@ public class Date implements Comparable<Date> {
 	private int day;
 	private int year;
 	private int invDate; // 1 = Correct date. 0 = Incorrect date.
-	private static final int[] DAYS_PER_MONTH = { 0, 31, 28, 31, 30, 31, 30, 31,
+	private static final int[] DAYS_PER_MONTH = { 0, 31, 29, 31, 30, 31, 30, 31,
             31, 30, 31, 30, 31 };
 	private static final String[] MONTHS = { "", "January", "February",
 			"March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
@@ -53,9 +69,13 @@ public class Date implements Comparable<Date> {
 			if(this.day == 0)
 				this.invDate = 0;
 			else {
-				this.invDate = 1;
 				this.year = Integer.valueOf(s[2]);
-				this.date = MONTHS[month] + " " + day + ", " + year;
+				if (month == 2 && day == 29 && !(year % 4 == 0 && year % 100 != 0 || year % 400 == 0))
+					this.invDate = 0;
+				else {
+					this.invDate = 1;
+					this.date = MONTHS[month] + " " + day + ", " + year;
+				}
 			}
 		}
 	}
@@ -63,7 +83,7 @@ public class Date implements Comparable<Date> {
 	@Override
 	public String toString() {
 		if (invDate == 0)
-			return "Invalid Date.";
+			return "Invalid Date";
 		else
 			return "Date: " + date;
 	}
