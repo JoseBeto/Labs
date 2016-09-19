@@ -4,12 +4,10 @@ public class Meter extends Length{
 	
 	public Meter(double length) {
 		super(length);
-		
 	}
 
 	public void add(Length other) {
-		
-		
+		setLength(this.getLength() + other.toMeters());
 	}
 
 	public String getUnit() {
@@ -20,7 +18,6 @@ public class Meter extends Length{
 	}
 
 	public double toMeters() {
-		
-		return 0;
+		return getLength();
 	}
 }

@@ -59,9 +59,12 @@ public abstract class Length implements Comparable<Length> {
      * Compare this Length object to the other one.
      */
     public int compareTo(Length other) {
-        // This stub needs to be replaced with the correct code.
-        // Use the toMeters method.
-        return 0;
+        if(this.toMeters() < other.toMeters())
+        	return -1;
+        else if(this.toMeters() > other.toMeters())
+        	return 1;
+        else //this and other are equal
+        	return 0;
     }
 
     /**

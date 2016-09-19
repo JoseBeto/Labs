@@ -6,12 +6,10 @@ public class Yard extends Length {
 	
 	public Yard(double length) {
 		super(length);
-		
 	}
 
 	public void add(Length other) {
-		
-		
+		setLength(this.getLength() + (other.toMeters() / METERS_PER_YARD));
 	}
 
 	public String getUnit() {
@@ -22,7 +20,6 @@ public class Yard extends Length {
 	}
 
 	public double toMeters() {
-		
-		return 0;
+		return getLength() * METERS_PER_YARD;
 	}
 }

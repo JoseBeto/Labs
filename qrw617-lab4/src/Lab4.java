@@ -2,61 +2,86 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import length.Length;
+
+import length.*;
 
 public class Lab4 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner in = null;
 		try {
 		    in = new Scanner(new File("data.txt"));
 		} catch (FileNotFoundException exception) {
 		    throw new RuntimeException("failed to open data.txt");
 		}
-		// need more code for other parts of this assignment
 		ArrayList<Length> values = new ArrayList<Length>();
 		while (in.hasNextDouble()) {
 		    double value = in.nextDouble();
 		    String unit = in.next();
 		    Length length = null;
 		    if(unit.equalsIgnoreCase("foot") || unit.equalsIgnoreCase("feet"))
-		    {
-		    	
-		    }
+		    	length = new Foot(value);
+		    else if(unit.equalsIgnoreCase("inch") || unit.equalsIgnoreCase("inches"))
+		    	length = new Inch(value);
+		    else if(unit.equalsIgnoreCase("meter") || unit.equalsIgnoreCase("meters"))
+		    	length = new Meter(value);
+		    else if(unit.equalsIgnoreCase("yard") || unit.equalsIgnoreCase("yards"))
+		    	length = new Yard(value);
 		    values.add(length);
-		    // code here to use the value of unit to create the
-		    // right type of Length object and store it in length.
 		    System.out.println(length);
-		    // need more code for other parts of this assignment
 		}
+		findMinAndMax(values);
+		addFirstToLast(values);
+		addLastToFirst(values);
 		in.close();
-		// need more code for other parts of this assignment
+	}
+	
+	public static void addFirstToLast(ArrayList<Length> v) {
+		Foot foot = new Foot(0);
+		Inch inch = new Inch(0);
+		Meter meter = new Meter(0);
+		Yard yard = new Yard(0);
+		for(int i = 0; i < v.size(); i++) {
+			foot.add(v.get(i));
+			inch.add(v.get(i));
+			meter.add(v.get(i));
+			yard.add(v.get(i));
+		}
+		System.out.println("\nSum of Lengths Adding from First to Last");
+		System.out.println(meter);
+		System.out.println(inch);
+		System.out.println(foot);
+		System.out.println(yard);
+	}
+	
+	public static void addLastToFirst(ArrayList<Length> v) {
+		Foot foot = new Foot(0);
+		Inch inch = new Inch(0);
+		Meter meter = new Meter(0);
+		Yard yard = new Yard(0);
+		for(int i = v.size() - 1; i >= 0; i--) {
+			foot.add(v.get(i));
+			inch.add(v.get(i));
+			meter.add(v.get(i));
+			yard.add(v.get(i));
+		}
+		System.out.println("\nSum of Lengths Adding from Last to First");
+		System.out.println(meter);
+		System.out.println(inch);
+		System.out.println(foot);
+		System.out.println(yard);
+	}
+	
+	public static void findMinAndMax(ArrayList<Length> v) {
+		Length min = v.get(0);
+		Length max = v.get(0);
+		for(int i = 1; i < v.size(); i++) {
+			if(min.toMeters() > v.get(i).toMeters())
+				min = v.get(i);
+			if(max.toMeters() < v.get(i).toMeters())
+				max = v.get(i);
+		}
+		System.out.println("\nMinimum is " + min);
+		System.out.println("Maximum is " + max);
 	}
 }
-
-/* Output:
- * class length.Meter: 1.0 meter
- * class length.Inch: 1.0 inch
- * class length.Foot: 1.0 foot
- * class length.Yard: 1.0 yard
- * class length.Meter: 401.336 meters
- * class length.Inch: 15839.0 inches
- * class length.Foot: 1319.0 feet
- * class length.Yard: 439.0 yards
- * 
- * Minimum is class length.Inch: 1.0 inch
- * Maximum is class length.Inch: 15839.0 inches
- * 
- * Sum of Lengths Adding from First to Last
- * class length.Meter: 1609.344 meters
- * class length.Inch: 63360.0 inches
- * class length.Foot: 5280.0 feet
- * class length.Yard: 1760.0 yards
- * 
- * Sum of Lengths Adding from Last to First
- * class length.Meter: 1609.3439999999998 meters
- * class length.Inch: 63360.0 inches
- * class length.Foot: 5279.999999999999 feet
- * class length.Yard: 1760.0 yards
- */

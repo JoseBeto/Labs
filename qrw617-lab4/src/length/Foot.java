@@ -9,7 +9,7 @@ public class Foot extends Length{
 	}
 
 	public void add(Length other) {
-		
+		setLength(this.getLength() + (other.toMeters() / METERS_PER_FOOT));
 	}
 
 	public String getUnit() {
@@ -20,7 +20,6 @@ public class Foot extends Length{
 	}
 
 	public double toMeters() {
-		
-		return 0;
+		return getLength() * METERS_PER_FOOT;
 	}
 }
