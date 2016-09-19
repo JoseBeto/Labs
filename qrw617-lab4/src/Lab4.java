@@ -1,10 +1,32 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+import length.Length;
 
 public class Lab4 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//ArrayList<Length>
-		
+		Scanner in = null;
+		try {
+		    in = new Scanner(new File("data.txt"));
+		} catch (FileNotFoundException exception) {
+		    throw new RuntimeException("failed to open data.txt");
+		}
+		// need more code for other parts of this assignment
+		while (in.hasNextDouble()) {
+		    double value = in.nextDouble();
+		    String unit = in.next();
+		    Length length = null;
+		    // code here to use the value of unit to create the
+		    // right type of Length object and store it in length.
+		    System.out.println(length);
+		    // need more code for other parts of this assignment
+		}
+		in.close();
+		// need more code for other parts of this assignment
 	}
 
 }
