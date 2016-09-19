@@ -1,14 +1,13 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
-
 import length.Length;
 
 public class Lab4 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//ArrayList<Length>
 		Scanner in = null;
 		try {
 		    in = new Scanner(new File("data.txt"));
@@ -16,10 +15,16 @@ public class Lab4 {
 		    throw new RuntimeException("failed to open data.txt");
 		}
 		// need more code for other parts of this assignment
+		ArrayList<Length> values = new ArrayList<Length>();
 		while (in.hasNextDouble()) {
 		    double value = in.nextDouble();
 		    String unit = in.next();
 		    Length length = null;
+		    if(unit.equalsIgnoreCase("foot") || unit.equalsIgnoreCase("feet"))
+		    {
+		    	
+		    }
+		    values.add(length);
 		    // code here to use the value of unit to create the
 		    // right type of Length object and store it in length.
 		    System.out.println(length);
@@ -28,7 +33,6 @@ public class Lab4 {
 		in.close();
 		// need more code for other parts of this assignment
 	}
-
 }
 
 /* Output:
