@@ -1,7 +1,13 @@
 package length;
 
 /*********************************************
- * The Meter class
+ * The Meter class will store length in Length
+ * 	class. It will also add this to other once
+ * 	other is converted to meters, it will 
+ * 	return meter or meters depending if length
+ * 	is greater or equal to 1.0, and it will
+ * 	convert length to meters (in this case, return
+ * 	length as it is).
  * 
  * @author Jose Bocanegra
  *********************************************/

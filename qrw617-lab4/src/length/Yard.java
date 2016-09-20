@@ -1,12 +1,23 @@
 package length;
 
 /*********************************************
- * The Yard class
+ * The Yard class will store length in Length
+ * 	class. It will also add this to other once
+ * 	other is converted to yards, it will 
+ * 	return yard or yards depending if length
+ * 	is greater or equal to 1.0, and it will
+ * 	convert length to meters by multiplying 
+ * 	length by METERS_PER_YARD
  * 
  * @author Jose Bocanegra
  *********************************************/
 
 public class Yard extends Length {
+	
+	/**
+	 * METERS_PER_YARD is a constant value that 
+	 * 	equals how many meters are in a yard
+	 */
 
 	public static final double METERS_PER_YARD = 0.9144;
 	

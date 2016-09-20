@@ -1,12 +1,23 @@
 package length;
 
 /*********************************************
- * The Inch class
+ * The Inch class will store length in Length
+ * 	class. It will also add this to other once
+ * 	other is converted to inches, it will 
+ * 	return inch or inches depending if length
+ * 	is greater or equal to 1.0, and it will
+ * 	convert length to meters by multiplying 
+ * 	length by METERS_PER_INCH
  * 
  * @author Jose Bocanegra
  *********************************************/
 
 public class Inch extends Length{
+	
+	/**
+	 * METERS_PER_INCH is a constant value that 
+	 * 	equals how many meters are in an inch
+	 */
 	
 	public static final double METERS_PER_INCH = 0.0254;
 
