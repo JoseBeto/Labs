@@ -5,8 +5,28 @@ import java.util.Scanner;
 
 import length.*;
 
+/*********************************************
+ * The Lab4 class will store data from data.txt into
+ * 	the Length class, then print out the values,
+ * 	print the min and max value, then print the sum
+ * 	calculated two different ways, one adding from the
+ * 	first to the last value and the other adding from 
+ * 	the last to the first vlue.
+ * 
+ * @author Jose Bocanegra
+ *********************************************/
+
 public class Lab4 {
 
+	/**
+	 * Main method will read in the data from data.txt, store them in
+	 * 	temp values named value and unit, then use unit to determine which
+	 * 	class value will be sent to, which is then stored into length. After
+	 * 	it is stored in length, we will add it to an ArrayList.
+	 * 
+	 * @param args
+	 */
+	
 	public static void main(String[] args) {
 		Scanner in = null;
 		try {
@@ -36,6 +56,13 @@ public class Lab4 {
 		in.close();
 	}
 	
+	/**
+	 * Adds the values in ArrayList v together from First to Last
+	 * 	then prints the result.
+	 * 
+	 * @param v
+	 */
+	
 	public static void addFirstToLast(ArrayList<Length> v) {
 		Foot foot = new Foot(0);
 		Inch inch = new Inch(0);
@@ -54,6 +81,13 @@ public class Lab4 {
 		System.out.println(yard);
 	}
 	
+	/**
+	 * Adds the values in ArrayList v together from Last to First
+	 * 	then prints the result.
+	 * 
+	 * @param v
+	 */
+	
 	public static void addLastToFirst(ArrayList<Length> v) {
 		Foot foot = new Foot(0);
 		Inch inch = new Inch(0);
@@ -71,6 +105,13 @@ public class Lab4 {
 		System.out.println(foot);
 		System.out.println(yard);
 	}
+	
+	/**
+	 * Will find the Min and Max value in the ArrayList v
+	 * 	then print the result.
+	 * 
+	 * @param v
+	 */
 	
 	public static void findMinAndMax(ArrayList<Length> v) {
 		Length min = v.get(0);
