@@ -17,7 +17,7 @@ public class Meter extends Length{
 	/**
 	 * Meter constructor will store length in Length class
 	 * 
-	 * @param length
+	 * @param length length in the units of this object
 	 */
 	
 	public Meter(double length) {

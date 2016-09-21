@@ -24,7 +24,7 @@ public class Inch extends Length{
 	/**
 	 * Inch constructor will store length in Length class
 	 * 
-	 * @param length
+	 * @param length length in the units of this object
 	 */
 	
 	public Inch(double length) {
