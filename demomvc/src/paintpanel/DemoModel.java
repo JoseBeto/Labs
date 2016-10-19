@@ -1,5 +1,6 @@
 package paintpanel;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * The DemoModel class holds the information that is used by the GUI.
@@ -17,7 +18,8 @@ public class DemoModel {
 	/** 
 	 * An array of 10000 java.awt.Point references 
 	 */
-	private Point[] points;
+	private ArrayList<Point> points;
+	private ArrayList<Color> colors;
 	
 	/** 
 	 * The color selected by the user 
@@ -26,7 +28,8 @@ public class DemoModel {
 	
 	public DemoModel() {
 		pointCount = 0;
-		points = new Point[10000];
+		points = new ArrayList<Point>();
+		colors = new ArrayList<Color>();
 		selectedColor = Color.CYAN;
 	}
 	
@@ -36,7 +39,8 @@ public class DemoModel {
 	 */
 	public void addPoint(Point point) {
 		// doesn't avoid out-of-bounds errors
-		points[pointCount] = point;
+		points.add(pointCount, point);
+		colors.add(pointCount, getSelectedColor());
 		pointCount++;
 	}
 	
@@ -49,7 +53,14 @@ public class DemoModel {
 		if (i >= 0 && i < pointCount) {
 			// probably should return a new point so that the return
 			// value cannot be used to change the array element
-			return points[i];
+			return points.get(i);
+		}
+		return null;
+	}
+	
+	public Color getColor(int i){
+		if (i >= 0 && i < pointCount){
+			return colors.get(i);
 		}
 		return null;
 	}
@@ -68,4 +79,6 @@ public class DemoModel {
 	public Color getSelectedColor() {
 		return selectedColor;
 	}
+	
+	
 }

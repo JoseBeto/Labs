@@ -26,13 +26,11 @@ public class DemoView extends JFrame {
 	 * for displaying a list of colors
 	 */
 	private JList colorList;
-	private JList colorList2;
 	
 	/** 
 	 * the panel where the JList will be placed 
 	 */
 	private JPanel listPanel;
-	private JPanel listPanel2;
 
 	/** 
 	 * the String names of the colors that the user can select 
@@ -68,14 +66,6 @@ public class DemoView extends JFrame {
 		colorList.setVisibleRowCount(5);
 		colorList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		listPanel.add(new JScrollPane(colorList), BorderLayout.CENTER);
-		
-		/* WEST: Add a list so the user can select a color. */
-		listPanel2 = new JPanel();
-		add(listPanel2, BorderLayout.EAST);
-		colorList2 = new JList(colorNames);
-		colorList2.setVisibleRowCount(5);
-		colorList2.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		listPanel2.add(new JScrollPane(colorList2), BorderLayout.CENTER);
 	} // end constructor
 
 	/**

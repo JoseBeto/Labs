@@ -33,10 +33,12 @@ public class PaintPanel extends JPanel {
 		// draw all points
 		int i = 0;
 		Point point = model.getPoint(0);
+		g.setColor(model.getColor(0));
 		while (point != null) {
 			g.fillOval(point.x, point.y, 4, 4);
-			i ++;
+			i++;
 			point = model.getPoint(i);
+			g.setColor(model.getColor(i));
 		}
 	} // end method paintComponent
 } // end class PaintPanel
