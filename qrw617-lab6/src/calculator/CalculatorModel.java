@@ -85,6 +85,28 @@ public class CalculatorModel {
 				}
 				displayString += ".";
 			}
+		} else if (text.equals("+/-")) { //Will negate current number
+			displayValue *= -1;
+			if(displayString.substring(0, 1).equals("-"))
+				displayString = displayString.substring(1, displayString.length());
+			else
+				displayString = "-" + displayString;
+		} else if (text.equals("x^2")) { //Will square the current number
+			displayValue *= displayValue;
+			displayString = "" + displayValue;
+			dot = true;
+		} else if (text.equals("sqrt")) { //Will square root the current number
+			displayValue = Math.sqrt(displayValue);
+			displayString = "" + displayValue;
+			dot = true;
+		} else if (text.equals("cbrt") && displayValue != 0) { //Will cube root the current number
+			displayValue = Math.cbrt(displayValue);
+			displayString = "" + displayValue;
+			dot = true;
+		} else if (text.equals("x!")) { //Will pass current value to factorial method
+			displayValue = factorial(displayValue);
+			displayString = "" + displayValue;
+			dot = true;
 		} else {
 		    if (operation.equals("+")) {
 				displayValue = internalValue + displayValue;
@@ -94,6 +116,8 @@ public class CalculatorModel {
 				displayValue = internalValue * displayValue;
 			} else if (operation.equals("/")) {
 				displayValue = internalValue / displayValue;
+			} else if (operation.equals("x^y")) { //Will raise internalValue to the power of displayValue
+				displayValue = Math.pow(internalValue, displayValue);
 			}
 			displayString = "" + displayValue;
 			// internalValue = displayValue;
@@ -103,26 +127,44 @@ public class CalculatorModel {
 			start = true;
 		}
 	}
-
-	public double getDisplayValue() {
-		return displayValue;
+	
+	/**
+	 * Factorial method will calculate and return the factorial of d
+	 * 
+	 * @param d
+	 * @return factorial of d
+	 */
+	
+	public double factorial(double d) {
+		double n = 1;
+		for(double i = d; i > 1; i--){
+			n *= i;
+		}
+		return n;
 	}
 
-	public String getDisplayString() {
-		return displayString;
-	}
-
+	/**
+	 * setStart allows other classes to set start boolean
+	 * @param start
+	 */
+	
 	public void setStart(boolean start) {
 		this.start = start;
 	}
+	
+	/**
+	 * setDisplayValue allows other classes to set displayValue double
+	 * @param displayValue
+	 */
 
 	public void setDisplayValue(double displayValue) {
 		this.displayValue = displayValue;
 	}
-
-	public void setInternalValue(double internalValue) {
-		this.internalValue = internalValue;
-	}
+	
+	/**
+	 * setDisplayString allows other classes to set displayString String
+	 * @param displayString
+	 */
 
 	public void setDisplayString(String displayString) {
 		this.displayString = displayString;

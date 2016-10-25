@@ -73,12 +73,24 @@ public class CalculatorView extends JFrame {
 		add(buttonsPanel, BorderLayout.CENTER);
 		buttonsPanel.setLayout(new GridLayout(5, 5, 0, 0)); //Changed to 5 by 5
 
+		/* Added the following
+		 * 	x! : Factorial
+		 * 	cbrt : Cube root
+		 * 	sqrt : Square root
+		 *  x^y : x to the power of y
+		 *  x^2 : x squared
+		 *  <- : Backspace
+		 *  CE : Clear current value
+		 *  C : Clear everything, basically restart
+		 *  +/- : Negate current value
+		 */
+		
 		String[] buttonStrings = {
-				"<-", "CE", "C", " ",
-				"1", "2", "3", "+", 
-				"4", "5", "6", "-", 
-				"7", "8", "9", "*",
-				"0", ".", "=", "/"
+				"x^2", "<-", "CE", "C", "+/-",
+				"x^y", "1", "2", "3", "+", 
+				"sqrt", "4", "5", "6", "-", 
+				"cbrt", "7", "8", "9", "*",
+				"x!", "0", ".", "=", "/"
 		};
 
 		for (String s : buttonStrings) {

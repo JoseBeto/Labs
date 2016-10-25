@@ -26,7 +26,7 @@ public class Calculator {
 		
 		/* start it up */
 		view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		view.setSize(400, 300);
+		view.setSize(500, 400);
 		view.setVisible(true);
 	}
 }

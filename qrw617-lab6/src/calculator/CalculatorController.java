@@ -46,11 +46,19 @@ public class CalculatorController implements ActionListener {
 		if (command.equals("Exit")) {
 			System.exit(0);
 		} else if(command.equals("<-")){ //This will erase a single number from current number
-			String str = model.getDisplayString();
-			str = str.substring(0, str.length()-1);
-			model.setDisplayString(str);
-			model.setDisplayValue(Double.valueOf(str));
-			view.update(str);
+			String str = model.getValue();
+			if(str.length() > 1){ //If length is greater than 1, erase last value
+				str = str.substring(0, str.length()-1);
+				model.setDisplayString(str);
+				model.setDisplayValue(Double.valueOf(str));
+				view.update(str);
+			}
+			else if(str.length() == 1){ //If length is 1, set to 0.0
+				str = "";
+				model.setDisplayString(str);
+				model.setDisplayValue(0);
+				view.update("0.0");
+			}
 		} else if(command.equals("CE")) { //This will erase the entire current number
 			model.setDisplayString("");
 			model.setDisplayValue(0.0);
