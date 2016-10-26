@@ -86,11 +86,16 @@ public class CalculatorModel {
 				displayString += ".";
 			}
 		} else if (text.equals("+/-")) { //Will negate current number
-			displayValue *= -1;
-			if(displayString.substring(0, 1).equals("-"))
-				displayString = displayString.substring(1, displayString.length());
-			else
-				displayString = "-" + displayString;
+			if(displayString.length() > 0) {
+				displayValue *= -1;
+				if(displayString.substring(0, 1).equals("-"))
+					displayString = displayString.substring(1, displayString.length());
+				else
+					displayString = "-" + displayString;
+			} else{
+				displayString = "-0.0";
+				displayValue = -0.0;
+			}
 		} else if (text.equals("x^2")) { //Will square the current number
 			displayValue *= displayValue;
 			displayString = "" + displayValue;

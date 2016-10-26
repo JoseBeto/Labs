@@ -47,17 +47,16 @@ public class CalculatorController implements ActionListener {
 			System.exit(0);
 		} else if(command.equals("<-")){ //This will erase a single number from current number
 			String str = model.getValue();
-			if(str.length() > 1){ //If length is greater than 1, erase last value
-				str = str.substring(0, str.length()-1);
-				model.setDisplayString(str);
-				model.setDisplayValue(Double.valueOf(str));
-				view.update(str);
-			}
-			else if(str.length() == 1){ //If length is 1, set to 0.0
+			if(str.length() == 1 || ((str.length() == 2) && (str.contains("-")))){ //If length is 1, set to 0.0, or if length is 2 and is negative
 				str = "";
 				model.setDisplayString(str);
 				model.setDisplayValue(0);
 				view.update("0.0");
+			} else if(str.length() > 1){ //If length is greater than 1, erase last value
+				str = str.substring(0, str.length()-1);
+				model.setDisplayString(str);
+				model.setDisplayValue(Double.valueOf(str));
+				view.update(str);
 			}
 		} else if(command.equals("CE")) { //This will erase the entire current number
 			model.setDisplayString("");
