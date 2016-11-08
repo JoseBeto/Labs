@@ -1,0 +1,6 @@
+If the program correctly handles 
+exceptions. The response to an exception should be 
+to print out the exception, and to start over 
+again asking the user for a file. A couple of ways 
+to generate exceptions is to select a directory rather than a file, 
+or to type in the name of a file that doesn't exist.

@@ -1,4 +1,5 @@
 import java.io.*;
+
 import javax.swing.*;
 
 /**
@@ -17,25 +18,28 @@ public class Lab8 {
      * Main method for Lab 8.
      * @throws FileNotFoundException 
      */
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args){
         // These statements should be be into a loop that runs until all the
         // statements execute without an exception.
-    	Boolean continueLoop = true;
-    	do{
+    	boolean thrown = true;
+    	while(thrown){
     		try{
-    			File file = getFileFromUser();
-    	        FileCounts counter = new FileCounts(file);
-    	        System.out.println(file);
-    	        System.out.printf("%d lines\n", counter.lineCount());
-    	        System.out.printf("%d tokens\n", counter.tokenCount());
-    	        System.out.printf("%d characters\n", counter.charCount());
-    	        System.out.printf("%d bytes\n", counter.byteCount());
-    			continueLoop = false;
-    		}catch (FileNotFoundException fileNotFoundException){
-    			System.err.printf("\nException: %s\n", fileNotFoundException);
-                System.out.println("File does not exist.\n");
-    		}
-    	} while (continueLoop);
+        		File file = getFileFromUser();
+        	    FileCounts counter = new FileCounts(file);
+        	    System.out.println(file);
+        	    System.out.printf("%d lines\n", counter.lineCount());
+        	    System.out.printf("%d tokens\n", counter.tokenCount());
+        	    System.out.printf("%d characters\n", counter.charCount());
+        	    System.out.printf("%d bytes\n", counter.byteCount());
+        	    thrown = false;
+        	}catch (Exception e){
+        		if(e.getMessage().equalsIgnoreCase("User selected cancel")){
+        			thrown = false;
+        			break;
+        		}
+        		System.err.println(e + "\n");
+        	}
+    	}
     }
     
     /**
