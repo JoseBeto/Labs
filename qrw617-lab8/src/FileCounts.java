@@ -1,13 +1,31 @@
 import java.io.*;
 import java.util.Scanner;
 
+/**
+ * FileCounts class will calculate the chosen files lines, 
+ * 	tokens, chars and bytes.
+ * 
+ * @author Jose Bocanegra
+ */
+
 public class FileCounts {
     private File file;
     
+    /**
+     * FileCounts constructor stores the file
+     * 	given in file
+     * @param file
+     */
     public FileCounts(File file) {
         this.file = file;
     }
  
+    /**
+     * lineCount counts the number of lines in file
+     * 	while checking for errors.
+     * @return int
+     * @throws FileNotFoundException
+     */
     public int lineCount() throws FileNotFoundException{
     	int count = 0;
 		Scanner scanner;
@@ -24,6 +42,12 @@ public class FileCounts {
         return count;
     }
     
+    /**
+     * tokenCount counts the number of tokens in file
+     * 	while checking for errors.
+     * @return int
+     * @throws FileNotFoundException
+     */
     public int tokenCount() throws FileNotFoundException{
     	int count = 0;
 		Scanner scanner;
@@ -40,6 +64,12 @@ public class FileCounts {
         return count;
     }
     
+    /**
+     * charCount counts the number of chars in file
+     * 	while checking for errors. 
+     * @return int
+     * @throws IOException
+     */
     public int charCount() throws IOException{
     	int count = 0, i;
     	String c = "";
@@ -59,6 +89,12 @@ public class FileCounts {
     	return count;
     }
     
+    /**
+     * byteCount counts the number of bytes of the file
+     * 	while checking for IO errors.
+     * @return int
+     * @throws IOException
+     */
     public int byteCount() throws IOException{
     	FileInputStream in = null;
     	int count = 0;
