@@ -30,7 +30,7 @@ public class FileCounts {
     	int count = 0;
 		Scanner scanner;
 		try {
-			scanner = new Scanner(file);
+			scanner = new Scanner(new BufferedReader(new FileReader(file)));
 			while(scanner.hasNextLine()){
 				count++;
 				scanner.nextLine();
@@ -52,7 +52,7 @@ public class FileCounts {
     	int count = 0;
 		Scanner scanner;
 		try {
-			scanner = new Scanner(file);
+			scanner = new Scanner(new BufferedReader(new FileReader(file)));
 			while(scanner.hasNext()){
 				count++;
 				scanner.next();
