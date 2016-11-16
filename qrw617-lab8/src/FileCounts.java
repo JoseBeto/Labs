@@ -71,16 +71,12 @@ public class FileCounts {
      * @throws IOException
      */
     public int charCount() throws IOException{
-    	int count = 0, i;
-    	String c = "";
+    	int count = 0;
     	BufferedReader reader = null;
         try {
-            reader = new BufferedReader(new FileReader(file));
-            while((i = reader.read()) != -1){
-            	c = String.valueOf((char) (i));
-            	if(c.matches("[a-zA-Z]+")){
-            		count++;
-            	}
+            reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
+            while(reader.read() != -1){
+            	count++;
             }
             reader.close();
         } catch (IOException e) {
