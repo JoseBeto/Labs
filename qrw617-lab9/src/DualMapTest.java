@@ -20,7 +20,7 @@ public class DualMapTest {
         String[] months2 = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
                 "Aug", "Sep", "Oct", "Nov", "Dec" };
 
-        DualMap<String, String> testdm = new DualHashMap<String, String>();
+        DualMap<String, String> testdm = new DualHashMap<String, String>(months1, months2);
 
         for (int i = 0; i < months1.length; i++) {
             testdm.put(months1[i], months2[i]);
