@@ -18,7 +18,7 @@ public class SortingThread implements Runnable{
 	/**
 	 * This is where we will be storing the array given.
 	 */
-	private int array[];
+	private int[] array;
 	/**
 	 * This is the id of the currently stored array.
 	 */
@@ -33,7 +33,7 @@ public class SortingThread implements Runnable{
 	 * @param array
 	 * @param buffer
 	 */
-	public SortingThread(int i, int array[], SortingBuffer buffer){
+	public SortingThread(int i, int[] array, SortingBuffer buffer){
 		this.i = i;
 		this.array = array;
 		this.buffer = buffer;
